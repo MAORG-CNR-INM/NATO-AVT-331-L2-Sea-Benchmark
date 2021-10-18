@@ -1,0 +1,252 @@
+!          --------------------------------------------------------------------------
+!          |         _____   _      _   _______       _____   _____    ___          |
+!          |        /  _  \ | \    / | |__   __|     |___  \ |___  \  /   \         |
+!          |        | /_\ | \ \    / /    | |    ___   __| |   __| | /_/| |         |
+!          |        |  _  |  \ \  / /     | |   |___| |__  |  |__  |    | |         |
+!          |        | | | |   \ \/ /      | |         ___| |  ___| |   _| |_        |
+!          |        |_| |_|    \__/       |_|        |_____/ |_____/  |_____|       |
+!          |                                                                        |
+!          |                 NATO-AVT-331, L2 Sea benchmark problem                 |
+!          |                                  v1.0                                  |
+!          |                       22 Sep. 2020 ... release 1.0                     |
+!          |                           CNR-INM, Rome, Italy                         |
+!          |                          Serani A. and  Diez M.                        |
+!          |                                                                        |
+!          --------------------------------------------------------------------------
+!
+!*************************************************************************************************!
+!												  !
+!			        	SBDF INPUT FILE						  !
+!												  !
+!=================================================================================================!
+
+&MAIN_PARAMETERS
+        iaso		= 1      			! Kind of process			(int)
+        isolv		= 1				! Kind of solver			(int)
+	igeomod		= 2				! Kind of geometry modification tool	(int)
+        ngrid           = 7                             ! Number of grid levels                 (int) 
+        igrid           = 7				! Grid/fidelity level, 1=highest	(int)   
+        numfilest	= 1                             ! Number of files (ext domain)          (int)
+        numfilint	= 0                             ! Number of files (int domain)          (int)
+!
+!---Kind of geometry modification (igeomod)
+!   ----------------------
+! (1) OrthoPatches3D
+! (2) Morphing by KLE eigenvector (need eigenvector.out,alfak.out)
+/
+
+&GRID_PARAMETERS
+        filenamei	= '5415_90_25_fs.x'		! input  file name			(vect/cha)
+        filenameo	= 'grid.x'           		! output file name			(vect/cha)
+        inode		= 90	                  	! Total number of grid i-node 		(int)
+        jnode		= 25   	                	! total number of grdi j-node 		(int)
+/
+
+
+&FLUID_PARAMETERS
+	ro		= 998.5  			! Fluid density             [ kg/m^3 ]	(real)
+	nu		= 1.09e-6			! Fluid kinematic viscosity [  m^2/s ]	(real)
+	gi		= 9.8033 			! Gravity acceleration      [  m/s^2 ]	(real)
+/
+
+
+&PROBLEM_PARAMETERS
+        ndv		= 14       			! Number of design variables		(int)
+        nfunc		= 1       			! Number of objective function		(int)
+        nfcw            = 1                             ! Number of calm water objectives       (int)
+        nfsk            = 0                             ! Number of seakeeping objectives       (int)
+        nbox		= 4       			! Number of box constraints		(int)
+/
+
+
+&PANCA_PARAMETERS
+	carena		= '5415'			! Vessel name
+	shiplen		= 5.720				! Vessel lenght for total res.	[m]
+	flare		= 'n'				! (y/n) Flare condition 
+	nflare		= 0				! Starting Flare section
+	swath		= 'n'				! (y/n) Catamaran and swath ship
+	yswath		= 0.00				! Y translation
+	sym		= 'n'				! (y/n) Symmetrical ship
+	dist_pp		= 142.0				! Lenght
+	stre_le		= 0.0				! Stretching lenght for JUMBO-SHIP
+	xtrasla		= -71.0				! X translation
+	ztrasla		= -6.16				! Z translation
+	xmirror		= 'y'				! (y/n) X mirror
+	ymirror 	= 'n'				! (y/n) Y mirror
+	zmirror		= 'n'				! (y/n) Z mirror
+	areamin		= 0.8				! Panel packing threshold
+        geofile		= 'y'                           ! (y/n) Geometry check files            (cha)
+!
+        fsdom           = 'y'                           ! (y/n) Free-surface domain             (vect/cha)
+        trdom           = 'y'                           ! (y/n) Transom domain                  (vect/cha)
+        jumbo           = 'n'                           ! (No/Downstream/Upstream) Jumbo domain (vect/cha)
+        cutsec          = 'n'                           ! (y/n) Cut section                     (vect/cha)
+        lift            = 'n'                           ! (y/n) Extra-panels                    (vect/cha)
+        nlift           = 0                             ! Number of extra panel rows            (vect/int)
+        dz              = 0.0                           ! Height of extra panels                (vect/real)
+        ex_ij           = 'n'                           ! (y/n) (i,j)-exchange                  (vect/cha)
+        rfloi           = 'n'                           ! (y/n) Reverse flow  (i)               (vect/cha)
+        rfloj           = 'n'                           ! (y/n) Reverse flow  (j)               (vect/cha)
+/
+
+
+&SINK_TRIM
+        sink            = 0.0                           ! Sinkage (<0 if amidship sinks)  [-]
+        trim            = 0.0                           ! Trim    (>0 if bow sinks)     [rad]
+/
+
+
+&ORTHOPATCHES_3D
+        BIF_x 		= 0.				! x-dir [%]				(real)
+        BIF_y 		= 0.				! y-dir [%]				(real)
+        BIF_z 		= 0.				! z-dir [%]				(real)
+        n 		= 1 1 1 1 1 2 3 1 1 1 1 2 2 3 3 2 2 3 3 2 2 2 2 3 3 3 3	! x-order for npatches	(vect/int)
+        m 		= 1 1 1 2 3 1 1 2 2 3 3 1 1 1 1 2 3 2 3 2 2 3 3 2 3 2 3	! y-order for npatches	(vect/int)
+        l 		= 1 2 3 1 1 1 1 2 3 2 3 2 3 2 3 1 1 1 1 2 3 2 3 2 2 3 3	! z-order for naptches	(vect/int)
+        e 		= 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2	! versor direction	(vect/int)
+        xori		= 0.				! x-stern				(real)
+        yori		= 0.				! y-symmentry				(real)
+        zori		= 0.			 	! z-keel				(real)
+/
+
+
+&REGRID_PARAMETERS
+        navvia		= 1				! Number of files			(int)
+	file3		= 'geom.plt'			! Full geometry output			(cha)
+        istre           = 0                             ! Stretch along i                       (int)
+        iexp            = 1                             ! Stretch along i exponent              (int)
+        pesoi           = 1.0                           ! Weight for i stretch                  (real)
+	tensi		= 0.0				! Spline tension			(real)
+        jstre           = 0                             ! Stretch along j                       (int)
+        jexp            = 1                             ! Stretch along j exponent              (int)
+        pesoj           = 1.0                           ! Weight for j stretch                  (real)
+        tensj           = 0.0                           ! Spline tension                        (real)
+	nzomp1		= 0				! No. nodes to be excluded along WLs	(int)
+	nzomp2		= 0				! No. noded to be excluded along ords.	(int)
+	nir_new		= 180 151 127 107 90 76 64 	! New No. of nodes along i		(int)
+	njr_new		= 50  42  35  30  25 21 18 	! New No. of nodes along j		(int)
+	ipassi		= 1				! No. successive interpolations		(int)
+	moltiplica	= 1.0000			! Multiplication scale factor		(real) 
+	divide		= 1.0000			! Division scale factor			(real)
+	iij		= 0				! Switch i and j (0=no, 1=yes)		(int)
+	invi		= 0				! Switch i order (0=no, 1=yes)		(int)
+	invj		= 0				! Switch j order (0=no, 1=yes)		(int)
+	imx		= 0				!
+	imy		= 0				!
+	imz		= 0				!
+	ij1		= 0				! Set to 0 the y on J = 1  (1=yes)
+	ijn		= 0				! Set to 0 the y on J = Nj (1=yes)
+	ii1		= 0				! Set to 0 the y on I = 1  (1=yes)
+	iin		= 0				! Set to 0 the y on I = Ni (1=yes)
+	ixun		= 0				! Set const. the x value on the init. sec. J = 1
+	ixu1		= 0				! Set const. the x value on the init. sec. J = Nj
+	ixn		= 0				! Set const. the x value on the final sec. J = 1
+	ix1		= 0				! Set const. the x value on the final sec. J = Nj
+	icheck		= 1				! Check the negative part		(int)
+	wall		= 0.0				! Wall side for z greater than ...	(real)
+	zmaxnew		= 0.0				! Extend till z = ...			(rela)
+	xtrasla		= 0.
+	ytrasla		= 0.
+	ztrasla		= 0.
+/
+
+
+&CONSTRAINTS
+        lpp  		= 'y'				! (y/n) Length between perpendiculars 	(cha)
+        beam 		= 'n'				! (y/n)	Max beam			(cha)
+        disp 		= 'y'				! (y/n) Displacement			(cha)
+        bcheck    	= 'y'			 	! (y/n) beam  control activation	(cha)
+	brange    	= -5., 5.		 	! beam  min/max delta %			(vect/real)
+        dcheck    	= 'y'			 	! (y/n) draft control activation	(cha)
+        drange    	= -5., 5.		 	! draft min/max delta %			(vect/real)
+        xGcheck   	= 'n'			 	! (y/n) xG    control activation	(cha)
+        xGrange   	=  0., 0.		 	! xG    min/max delta %			(vect/real)
+        xcfcheck  	= 'n'  	                	! (y/n) xcf   control activation	(cha)
+        xcfrange  	=  0., 0.               	! xcf   min/max delta %			(vect/real)
+        ZC_ycheck 	= 'y'				! (y/n) breadth control activation	(cha)
+        ZC_ymin   	= 5.5			 	! min breadth [m]			(real)
+        ZC_zcheck 	= 'y'     	             	! (y/n) depth   control activation	(cha)
+        ZC_zmin   	= 2.0           	       	! min depth   [m]			(real)
+        ZC_inode  	= 1, 19		 		! inode of Zone to Control		(vect/int)
+        ZC_jnode  	= 19, 25		 	! jnode of Zone to Control		(vect/int)
+/
+
+
+&VARIABLES_RANGE
+        morph           = 'y'
+        r_coef		= 0.05				! Ratio of characteristic lenght	(real)
+        lchar		= 20.539			! Lenght for max/min variation          (real)
+!
+! ---- 
+! morph = n, use the following parameter for OBF_3D
+! morph = p, use a personal variable range (need variables.range file)
+! morph = y, use xmin=-1 and xmax=1
+/
+
+&NUMBER_FROUDE
+        nfr   		= 1                            ! Number of simulated Froude 		(int)
+/
+
+&FREE_SURFACE
+        ntraint 	= 0                             ! Number of internal transverse panels  (int)
+        antraest 	= 50 42 35 30 25 21 18 		! Number of external transverse panels  (int)
+        ancarlo  	= 50 42 35 30 25 21 18 		! Number of panels along the hull       (int)
+        anmonte  	= 25 21 18 15 13 11  9 		! Number of upstream panels             (int)
+        anvalle  	= 75 63 53 45 38 32 27 		! Number of downstream panels           (int)
+        ighost  	= 0                             ! Number of ghost panels                (int)
+        xstart  	=-1.00                          ! Minimum value of X                    (real)
+        xend    	= 2.00                          ! Maximum value of X                    (real)
+        ystart  	= 0.00                          ! Minimum value of Y                    (real)
+        yend    	= 1.00                          ! Maximum value of Y                    (real)
+        beta    	= 0.0                           ! Grid slope  [deg]                     (real)
+        iwrite  	= 0                             ! Activate data write: 0=NO, 1=YES      (int)
+        strey   	= 1.                            ! Stretch parameter                     (real)
+/
+
+
+&FREE_WARP
+	trimoff  	= 'y'				! (y/n) Inhibits trim			(cha) 
+	sinkoff  	= 'y' 				! (y/n) Inhibits sinkage		(cha) 
+	conv     	= 0.1				! Convergency parameter [%]		(real)
+	nitermax 	= 20				! Maximum number of iterations		(int) 
+	fr       	= 0.280 			! Froude numbers			(vect/real)
+        fz       	= 0. 				! Initial vertical force		(vect/real)
+        my       	= 0. 				! Initial pitch moment			(vect/real)
+        sinki    	= 0. 				! Initial sinkage [-]			(vect/real)
+        trimi    	= 0. 				! Initial trim	[rad]			(vect/real)
+        iobj     	= 1				! Objective function			(int)
+/
+
+
+&WARP_PARAMETERS
+	diana  		= 6.				! Minimum distance jesp				(real)						
+	kbase  		= 0 				! Calculates only base flow (0=no)		(int)
+	modo  		= 1  				! Double body 					(int)
+	nekel  		= 0            			! Potential-flow linearization			(int)
+	drycho 		= 'n'              		! (y/n) assigns DRYFR value 			(cha)
+	dryfr  		= 0.5               		! Dry transom threshold value			(real)
+	zG0    		= 0.0098               		! Vertical center of gravity coordinates [-]	(real)
+!
+!---MODO
+!   ----
+! (-1) NO
+! (1) YES
+!
+!---NEKEL
+!   -----
+! (0) Double-model (DM)
+! (1) Neumann-Kelvin (NK)
+!
+!---DRYFR
+!   -----
+! (y) assigned
+! (n) fixed by PANCA
+/
+
+
+&TATRA_INPUT
+	xini 		= 0.5				! Cut Lower bound x [-]			 	(real)
+	xfin 		= 1.5				! Cut Upper bound x [-] 			(real)
+/
+
+
