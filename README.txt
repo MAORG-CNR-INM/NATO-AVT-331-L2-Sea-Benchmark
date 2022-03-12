@@ -19,6 +19,7 @@ a linear potential flow solver.
             FCOPT    = -O3
             FCOPTOMP = -fopenmp
             LIB      = -llapack -lblas
+        !!!! ALLERT: under window linux subsystems make sure you are able to use openMP environment, otherwise comment the FCOPTOMP option   
     -- save and close the makefile and finally type "make" in a linux shell
 
 - The potential flow solver can be run at even keel or with 2DoF. For the bechmark pourpouse the simulation can be performed at even and keel and the example file are already set up.
@@ -36,6 +37,6 @@ a linear potential flow solver.
 
 References are available in the /doc folder
 - For the design-space and optimization problem definitions, constraints, and solver refer to
+-- Pellegrini, R., Serani, A., Liuzzi, G., Rinaldi, F., Lucidi, S., & Diez, M. (2022). A Derivative-Free Line-Search Algorithm for Simulation-Driven Design Optimization Using Multi-Fidelity Computations. Mathematics, 10(3), 481.
 -- Serani, A., Stern, F., Campana, E. F., & Diez, M. (2021). Hull-form stochastic optimization via computational-cost reduction methods. Engineering with Computers, 1-25.
--- Liuzzi, G., Lucidi, S., Rinaldi, F., Pellegrini, R., Serani, A., & Diez, M. (2021). Derivative-Free Line-Search Algorithm for Multi-Fidelity Optimization. In AIAA Scitech 2021 Forum (p. 1237).
 -- Serani, A., Diez, M., Wackers, J., Visonneau, M., & Stern, F. (2019). Stochastic shape optimization via design-space augmented dimensionality reduction and rans computations. In AIAA SciTech 2019 Forum (p. 2218).
