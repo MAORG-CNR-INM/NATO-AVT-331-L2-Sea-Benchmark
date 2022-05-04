@@ -1,12 +1,22 @@
 # NATO-AVT-331 on "Goal-driven, multi-fidelity approaches for military vehicle system-level desig" (L2 Sea Benchmark) 
 
-- This is the L2 sea benchmark problem developed by CNR-INM.
+## L2 Sea Benchmark (developed by CNR-INM)
+
+***Authors and References***
+
+[Andrea Serani](http://www.inm.cnr.it/people/andrea-serani/) and [Matteo Diez](http://www.inm.cnr.it/people/matteo-diez/)
+
+[[Paper]](https://drive.google.com/file/d/1Wb_q4OuUw6FdgxcyFl-2frag_ZT67c-C/view?usp=sharing) [[Presentation]](-) [[Video]](-)
+
+## Tool description
+
 - The tool provides the calm-water resistance of the DTMB-5415 (model scale) at Fr=0.28 by
 a linear potential flow solver.
 - The tool is implemented in fortran and works under linux on windows linux subsystem by GNU or Intel fortran compilers.
 - External libraries (lapack and blas for GNU or mkl for Intel) are needed.
 - OpenMP implementation is also available but not mandatory.
 
+***Compilation options***
 - To compile the code, 
     -- add the following line at the end of the .bashrc file
         "ulimit -s unlimited"
@@ -24,6 +34,7 @@ a linear potential flow solver.
         !!!! ALLERT: under window linux subsystems make sure you are able to use openMP environment, otherwise comment the FCOPTOMP option   
     -- save and close the makefile and finally type "make" in a linux shell
 
+***Use notes***
 - The potential flow solver can be run at even keel or with 2DoF. For the bechmark pourpouse the simulation can be performed at even and keel and the example file are already set up.
 - Up to 7 fidelity levels have been defined.
 
@@ -36,6 +47,8 @@ a linear potential flow solver.
 
 - Run the code in the directory with the input files (see the /example/DTMB-5415 folder) executing the binary file in the /bin folder.
 - A CPU000 folder will be created with all the input and output files. The objective function value, along with the costraints can be found in the objective.out file
+
+***References***
 
 References are available in the /doc folder
 - For the design-space and optimization problem definitions, constraints, and solver refer to
