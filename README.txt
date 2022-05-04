@@ -1,3 +1,5 @@
+# NATO-AVT-331 on "Goal-driven, multi-fidelity approaches for military vehicle system-level desig" (L2 Sea Benchmark) 
+
 - This is the L2 sea benchmark problem developed by CNR-INM.
 - The tool provides the calm-water resistance of the DTMB-5415 (model scale) at Fr=0.28 by
 a linear potential flow solver.
