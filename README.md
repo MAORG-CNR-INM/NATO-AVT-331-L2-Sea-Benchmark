@@ -6,7 +6,7 @@
 
 [Andrea Serani](http://www.inm.cnr.it/people/andrea-serani/) and [Matteo Diez](http://www.inm.cnr.it/people/matteo-diez/)
 
-[[Paper]](https://drive.google.com/file/d/1Wb_q4OuUw6FdgxcyFl-2frag_ZT67c-C/view?usp=sharing) [[Presentation]](-) [[Video]](-)
+[[Paper]](https://drive.google.com/file/d/1Wb_q4OuUw6FdgxcyFl-2frag_ZT67c-C/view?usp=sharing) [[Presentation]](https://github.com/MAORG-CNR-INM/NATO-AVT-331-L2-Sea-Benchmark/blob/main/doc/NATO-AVT-331%20Sea%20Team%20L2%20Problem.pdf) [[Video]](-)
 
 ## Tool description
 
