@@ -1,8 +1,6 @@
-# NATO-AVT-331 on "Goal-driven, multi-fidelity approaches for military vehicle system-level desig" (L2 Sea Benchmark) 
+# NATO-AVT-331 on "Goal-driven, multi-fidelity approaches for military vehicle system-level design" 
 
 ## L2 Sea Benchmark (developed by CNR-INM)
-
-***Authors and References***
 
 [Andrea Serani](http://www.inm.cnr.it/people/andrea-serani/) and [Matteo Diez](http://www.inm.cnr.it/people/matteo-diez/)
 
@@ -34,7 +32,7 @@ a linear potential flow solver.
         !!!! ALLERT: under window linux subsystems make sure you are able to use openMP environment, otherwise comment the FCOPTOMP option   
     -- save and close the makefile and finally type "make" in a linux shell
 
-***Use notes***
+***Notes***
 - The potential flow solver can be run at even keel or with 2DoF. For the bechmark pourpouse the simulation can be performed at even and keel and the example file are already set up.
 - Up to 7 fidelity levels have been defined.
 
@@ -50,8 +48,7 @@ a linear potential flow solver.
 
 ***References***
 
-References are available in the /doc folder
-- For the design-space and optimization problem definitions, constraints, and solver refer to
--- Pellegrini, R., Serani, A., Liuzzi, G., Rinaldi, F., Lucidi, S., & Diez, M. (2022). A Derivative-Free Line-Search Algorithm for Simulation-Driven Design Optimization Using Multi-Fidelity Computations. Mathematics, 10(3), 481.
--- Serani, A., Stern, F., Campana, E. F., & Diez, M. (2021). Hull-form stochastic optimization via computational-cost reduction methods. Engineering with Computers, 1-25.
--- Serani, A., Diez, M., Wackers, J., Visonneau, M., & Stern, F. (2019). Stochastic shape optimization via design-space augmented dimensionality reduction and rans computations. In AIAA SciTech 2019 Forum (p. 2218).
+References are available in the /doc folder. For the design-space and optimization problem definitions, constraints, and solver refer to
+- Pellegrini, R., Serani, A., Liuzzi, G., Rinaldi, F., Lucidi, S., & Diez, M. (2022). A Derivative-Free Line-Search Algorithm for Simulation-Driven Design Optimization Using Multi-Fidelity Computations. Mathematics, 10(3), 481.
+- Serani, A., Stern, F., Campana, E. F., & Diez, M. (2021). Hull-form stochastic optimization via computational-cost reduction methods. Engineering with Computers, 1-25.
+- Serani, A., Diez, M., Wackers, J., Visonneau, M., & Stern, F. (2019). Stochastic shape optimization via design-space augmented dimensionality reduction and rans computations. In AIAA SciTech 2019 Forum (p. 2218).
