@@ -16,39 +16,52 @@ a linear potential flow solver.
 
 ***Compilation options***
 - To compile the code, 
+    
     -- add the following line at the end of the .bashrc file
-        "ulimit -s unlimited"
-    -- open the makefile and
+        `ulimit -s unlimited`
+    
+    -- open the `makefile` and
+        
         -> for Intel compiler, uncomment the following compiling options
             FC       = ifort
             FCOPT    = -O5
             FCOPTOMP = -qopenmp
             LIB      = -mkl
+        
         -> for GNU compiler, uncomment the following compiling options
             FC       = gfortran   
             FCOPT    = -O3
             FCOPTOMP = -fopenmp
             LIB      = -llapack -lblas
+        
         !!!! ALLERT: under window linux subsystems make sure you are able to use openMP environment, otherwise comment the FCOPTOMP option   
-    -- save and close the makefile and finally type "make" in a linux shell
+    
+    -- save and close the `makefile` and finally type `make` in a linux shell
 
 ***Notes***
 - The potential flow solver can be run at even keel or with 2DoF. For the bechmark pourpouse the simulation can be performed at even and keel and the example file are already set up.
+
 - Up to 7 fidelity levels have been defined.
 
-- Only two text files (SBDF.nml and variables.inp) need to be edited to run the code.
-    --> SBDF.nml contains all the namelists
-    ----> to select the fidelity levels, the parameters to be edited in the MAIN_PARAMETERS namelist is
-        igrid           = 7				! Grid/fidelity level, 1=highest	(int)   
-    --> variables.inp contains the design variables
+- Only two text files (`SBDF.nml` and `variables.inp`) need to be edited to run the code.
+    
+ -- `SBDF.nml` contains all the namelists
+    
+    -> to select the fidelity levels, the parameters to be edited in the MAIN_PARAMETERS namelist is
+        
+        igrid           = 7				! Grid/fidelity level, 1=highest	(int)
+        
+    -> variables.inp contains the design variables
+        
         it is a column text files of 14 lines, each of them represents the design variable value and have to be within -1 and 1
 
-- Run the code in the directory with the input files (see the /example/DTMB-5415 folder) executing the binary file in the /bin folder.
-- A CPU000 folder will be created with all the input and output files. The objective function value, along with the costraints can be found in the objective.out file
+- Run the code in the directory with the input files (see the `/example/DTMB-5415` folder) executing the binary file in the `/bin` folder.
+
+- A `CPU000` folder will be created with all the input and output files. The objective function value, along with the costraints can be found in the `objective.out` file
 
 ***References***
 
-References are available in the /doc folder. For the design-space and optimization problem definitions, constraints, and solver refer to
+References are available in the `/doc` folder. For the design-space and optimization problem definitions, constraints, and solver refer to
 - Pellegrini, R., Serani, A., Liuzzi, G., Rinaldi, F., Lucidi, S., & Diez, M. (2022). A Derivative-Free Line-Search Algorithm for Simulation-Driven Design Optimization Using Multi-Fidelity Computations. Mathematics, 10(3), 481.
 - Serani, A., Stern, F., Campana, E. F., & Diez, M. (2021). Hull-form stochastic optimization via computational-cost reduction methods. Engineering with Computers, 1-25.
 - Serani, A., Diez, M., Wackers, J., Visonneau, M., & Stern, F. (2019). Stochastic shape optimization via design-space augmented dimensionality reduction and rans computations. In AIAA SciTech 2019 Forum (p. 2218).
