@@ -78,7 +78,7 @@ open(33,file='elapsed_CPUtime.out',status='unknown',recl=10000)
   write(33,*) "Elapsed CPU time = ",t_exec,"seconds"
 close(33)
 
-call system('sh ../../../scripts/clean.sh')
+! call system('sh ../../../scripts/clean.sh') 
 
 end program
 
