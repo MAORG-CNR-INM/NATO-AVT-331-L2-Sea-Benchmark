@@ -17,7 +17,7 @@ c ----------------------------------------------------------------------
       real d(2),cint(4000),vint(5),wint(4000)
 
       character*80 fina
-      character*5  cha
+      character*4  cha
 
 c ----------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ c -- Riorganizza i dati
       i0 = ncar
       ymax = 0.
 
-      ifr = fr*1000.0 + .1
+      ifr = nint(fr*1000)
       write(cha,99) ifr
       fina='tatra'//cha//'.raw'
       open(22,file=fina)
@@ -106,7 +106,7 @@ c -- Ordina in y
         end do
       end do
 
-      ifr = fr*1000.0 + .1
+      ifr = nint(fr*1000)
       write(cha,99) ifr
       fina='tatra'//cha//'.ori'
       open(22,file=fina)
@@ -229,10 +229,10 @@ c -- Derivata
 
 c -- Apre il file TATRAxxx.dat
 
-      ifr = fr*1000.0 + .1
+      ifr = nint(fr*1000)
       write(cha,99) ifr
       fina='tatra'//cha//'.dat'
-   99 format(i5.5)
+   99 format(i4.4)
 
       open(unit=20,file=fina,status='unknown')
       write(20,*) sup,fr,nj,ni
