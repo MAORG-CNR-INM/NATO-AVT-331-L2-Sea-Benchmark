@@ -25,7 +25,7 @@ rm  tatout*
 rm  tatra*.dat
 rm  tatra*.ori
 rm  tatra*.raw
-rm  tatra.dat
+#rm  tatra.dat
 rm  transom.grd
 rm  transom.int
 rm  untouchedgrid.plt
