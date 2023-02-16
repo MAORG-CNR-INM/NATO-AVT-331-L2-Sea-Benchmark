@@ -274,7 +274,7 @@ c ----------------------------------------------------------------------
       real*4 froude
       character*80 inpname
       character*10 outname
-      character*5  cha
+      character*4  cha
 
 c ----------------------------------------------------------------------
 
@@ -282,10 +282,10 @@ c      iend=0
 c   25 read(37,*,end=999,err=999) froude
       froude = fr
 c      print *, froude
-      ifr = nint(froude*1000.0)
+      ifr = nint(froude*1000)
       write(cha,199) ifr
       inpname='tatra'//cha//'.dat'
-  199 format(i5.5)
+  199 format(i4.4)
 c      open(20,file=inpname,status='old',form='formatted',err=25)
 c      print *, inpname
       open(20,file=inpname,status='old',form='formatted')
