@@ -24,7 +24,7 @@ c ----------------------------------------------------------------------
 c ----------------------------------------------------------------------
 
       fina(1:6) = 'solfr.'
-      ifr = fr*1000
+      ifr = nint(fr*1000)
       write(fina(7:10),'(i4.4)') ifr
       fina(11:14) = '.plt'
       open (99,file=fina,form='formatted',status='unknown',recl=64000)
@@ -161,7 +161,7 @@ c --- Interpolation by Gaussian weighting
 
 
       fina(1:6) = 'intfr.'
-      ifr = fr*1000
+      ifr = nint(fr*1000)
       write(fina(7:10),'(i4.4)') ifr
       fina(11:14) = '.plt'
       open (99,file=fina,form='formatted',status='unknown',recl=64000)
